@@ -6,11 +6,13 @@ import { provideFunctions } from '@angular/fire/functions';
 import { initializeApp } from 'firebase/app';
 import { getFunctions } from 'firebase/functions';
 import { environment } from '../environments/environment.development';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
+    provideHttpClient(),
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFunctions(() => getFunctions()),
